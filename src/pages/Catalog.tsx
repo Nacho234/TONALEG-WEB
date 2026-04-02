@@ -2,7 +2,8 @@ import { useState, useMemo, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SlidersHorizontal, X, ShoppingBag, ChevronDown, ChevronUp, ArrowLeft, Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { products, LINES, HAIR_TYPES } from '@/lib/data/products'
+import { LINES, HAIR_TYPES } from '@/lib/data/products'
+import { useProducts } from '@/lib/useProducts'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import { useCart } from '@/lib/CartContext'
 import Navbar from '@/components/layout/Navbar'
@@ -155,6 +156,7 @@ const DEFAULT_FILTERS: Filters = {
 
 export default function Catalog() {
   const { addItem } = useCart()
+  const { products, loading, error } = useProducts()
   const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS)
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState<'default' | 'price-asc' | 'price-desc' | 'name-asc'>('default')
@@ -386,7 +388,17 @@ export default function Catalog() {
             </AnimatePresence>
 
             {/* Product grid */}
-            {filtered.length === 0 ? (
+            {loading ? (
+              <div className="text-center py-24 text-[#6b6b6b]">
+                <div className="w-8 h-8 border-2 border-[#c9a96e] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+                <p className="text-sm">Cargando productos...</p>
+              </div>
+            ) : error ? (
+              <div className="text-center py-24 text-[#6b6b6b]">
+                <p className="font-serif text-xl text-[#1a1a1a] mb-2">Error al cargar productos</p>
+                <p className="text-sm">{error}</p>
+              </div>
+            ) : filtered.length === 0 ? (
               <div className="text-center py-24 text-[#6b6b6b]">
                 <div className="text-4xl mb-4">🔍</div>
                 <p className="font-serif text-xl text-[#1a1a1a] mb-2">Sin resultados</p>
@@ -402,6 +414,7 @@ export default function Catalog() {
                 animate="visible"
                 className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6"
               >
+
                 <AnimatePresence mode="popLayout">
                   {filtered.map((product) => (
                     <motion.div

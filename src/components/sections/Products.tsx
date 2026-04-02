@@ -2,13 +2,13 @@ import { motion } from 'framer-motion'
 import { ShoppingBag, ArrowRight } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 import SectionHeading from '@/components/common/SectionHeading'
-import { products } from '@/lib/data/products'
+import { useProducts } from '@/lib/useProducts'
 import { useCart } from '@/lib/CartContext'
-
-const featuredProducts = products.filter((p) => p.featured)
 
 export default function Products() {
   const { addItem } = useCart()
+  const { products } = useProducts()
+  const featuredProducts = products.filter((p) => p.featured)
 
   return (
     <section id="productos" className="py-28 bg-white">
