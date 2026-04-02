@@ -192,7 +192,7 @@ export default function Catalog() {
       const lineDiff = a.line.localeCompare(b.line, 'es')
       return lineDiff !== 0 ? lineDiff : a.id - b.id
     })
-  }, [filters, search, sort])
+  }, [filters, search, sort, products])
 
   const FiltersPanel = (
     <div>
