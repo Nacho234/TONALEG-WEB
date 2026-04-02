@@ -79,17 +79,20 @@ export default function Testimonials() {
                 variants={fadeUp}
                 className="flex-none w-80 md:w-96 snap-start"
               >
-                <div className="glass-card rounded-3xl p-8 h-full hover:shadow-[0_20px_60px_rgba(201,169,110,0.12)] hover:border-[#e8d5b5] transition-all duration-300 border border-white/80">
+                <div className="glass-card rounded-3xl p-8 h-full hover:shadow-[0_20px_60px_rgba(201,169,110,0.12)] hover:border-[#e8d5b5] transition-all duration-300 border border-white/80 flex flex-col">
+                  {/* Decorative quote mark */}
+                  <div className="text-5xl leading-none font-serif text-[#c9a96e]/25 mb-2 select-none">&ldquo;</div>
+
                   {/* Stars */}
-                  <div className="flex gap-1 mb-6">
+                  <div className="flex gap-1 mb-4">
                     {Array.from({ length: t.rating }).map((_, i) => (
-                      <span key={i} className="text-[#c9a96e] text-base">★</span>
+                      <span key={i} className="text-[#c9a96e] text-sm">★</span>
                     ))}
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-[#1a1a1a] text-base leading-relaxed mb-8 font-medium">
-                    &ldquo;{t.quote}&rdquo;
+                  <blockquote className="text-[#1a1a1a] text-base leading-relaxed mb-8 font-medium flex-1">
+                    {t.quote}
                   </blockquote>
 
                   {/* Author */}

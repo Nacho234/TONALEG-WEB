@@ -53,29 +53,25 @@ export default function Results() {
         </motion.div>
 
         {/* Before/After visual */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
           <motion.div
             variants={fadeLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="relative rounded-3xl overflow-hidden"
           >
-            <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-3xl p-8 text-center relative">
-              <div className="text-white/30 text-xs font-semibold tracking-widest uppercase mb-6">Antes</div>
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full border-4 border-[#3a3a3a] overflow-hidden flex items-center justify-center bg-[#252525]">
-                {/* Abstract hair representation */}
-                <div className="flex flex-col gap-1.5 items-center">
-                  {[70, 85, 60, 75, 50].map((w, i) => (
-                    <div
-                      key={i}
-                      className="h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded"
-                      style={{ width: `${w}%` }}
-                    />
-                  ))}
+            <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-3xl overflow-hidden relative">
+              <div className="p-8 text-center">
+                <div className="text-white/30 text-xs font-semibold tracking-widest uppercase mb-6">Antes</div>
+                <div className="w-44 h-44 mx-auto mb-6 rounded-full border-4 border-[#3a3a3a] overflow-hidden bg-[#252525]">
+                  <img
+                    src="https://res.cloudinary.com/deyt2fnfa/image/upload/v1774975097/ChatGPT_Image_31_mar_2026_13_38_07_ttcgrt.png"
+                    alt="Antes"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
+                <p className="text-white/40 text-sm">Cabello opaco, frágil y sin vida</p>
               </div>
-              <p className="text-white/40 text-sm">Cabello opaco, frágil y sin vida</p>
             </div>
           </motion.div>
 
@@ -84,38 +80,31 @@ export default function Results() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="relative rounded-3xl overflow-hidden"
           >
-            <div className="bg-gradient-to-br from-[#c9a96e]/20 to-[#1a1a1a] border border-[#c9a96e]/30 rounded-3xl p-8 text-center relative">
-              <div className="text-[#c9a96e] text-xs font-semibold tracking-widest uppercase mb-6">Después · 4 semanas</div>
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full border-4 border-[#c9a96e]/40 overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#c9a96e]/10 to-[#1a1a1a]">
-                {/* Abstract shiny hair */}
-                <div className="flex flex-col gap-1.5 items-center">
-                  {[90, 100, 85, 95, 80].map((w, i) => (
-                    <div
-                      key={i}
-                      className="h-0.5 rounded"
-                      style={{
-                        width: `${w}%`,
-                        background: 'linear-gradient(90deg, transparent, #c9a96e, #e8d5b5, #c9a96e, transparent)',
-                      }}
-                    />
-                  ))}
+            <div className="bg-gradient-to-br from-[#c9a96e]/20 to-[#1a1a1a] border border-[#c9a96e]/30 rounded-3xl overflow-hidden relative">
+              <div className="p-8 text-center relative">
+                <div className="text-[#c9a96e] text-xs font-semibold tracking-widest uppercase mb-6">Después · 4 semanas</div>
+                <div className="w-44 h-44 mx-auto mb-6 rounded-full border-4 border-[#c9a96e]/40 overflow-hidden bg-[#1a1a1a]">
+                  <img
+                    src="https://res.cloudinary.com/deyt2fnfa/image/upload/v1774973355/2_k9sn9j.png"
+                    alt="Después"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
+                <p className="text-white/70 text-sm">Cabello luminoso, fuerte y vitalizado</p>
               </div>
-              <p className="text-white/70 text-sm">Cabello luminoso, fuerte y vitalizado</p>
 
               {/* Sparkle effects */}
               {[
-                { top: '20%', right: '15%' },
-                { top: '60%', right: '8%' },
-                { top: '35%', left: '10%' },
+                { top: '20%', right: '8%' },
+                { top: '55%', right: '5%' },
+                { top: '35%', left: '5%' },
               ].map((pos, i) => (
                 <motion.div
                   key={i}
-                  animate={{ opacity: [0, 1, 0], scale: [0.5, 1, 0.5] }}
+                  animate={{ opacity: [0, 1, 0], scale: [0.5, 1.2, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity, delay: i * 0.7 }}
-                  className="absolute text-[#c9a96e] text-lg"
+                  className="absolute text-[#c9a96e] text-lg pointer-events-none"
                   style={pos}
                 >
                   ✦

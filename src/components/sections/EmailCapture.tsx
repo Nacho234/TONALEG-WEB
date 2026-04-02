@@ -41,11 +41,25 @@ export default function EmailCapture() {
 
           <motion.p
             variants={fadeUp}
-            className="text-lg text-[#6b6b6b] mb-4 leading-relaxed"
+            className="text-lg text-[#6b6b6b] mb-6 leading-relaxed"
           >
-            Suscríbete y recibe acceso anticipado a nuevos lanzamientos, rituales exclusivos
-            y un <strong className="text-[#c9a96e]">15% de descuento</strong> en tu primer pedido.
+            Únete a nuestra comunidad y disfruta de beneficios exclusivos desde el primer día.
           </motion.p>
+
+          <motion.ul variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center mb-2 text-sm text-[#6b6b6b]">
+            {[
+              '15% de descuento en tu primer pedido',
+              'Acceso anticipado a nuevos lanzamientos',
+              'Rituales y guías exclusivas',
+            ].map((benefit) => (
+              <li key={benefit} className="flex items-center gap-2">
+                <span className="w-4 h-4 rounded-full bg-[#c9a96e]/15 flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#c9a96e] text-[10px]">✓</span>
+                </span>
+                {benefit}
+              </li>
+            ))}
+          </motion.ul>
 
           {!submitted ? (
             <motion.form
