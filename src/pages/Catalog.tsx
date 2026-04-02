@@ -1,12 +1,25 @@
 import { useState, useMemo, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SlidersHorizontal, X, ShoppingBag, ChevronDown, ChevronUp, ArrowLeft, Search } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { LINES, HAIR_TYPES } from '@/lib/data/products'
 import { useProducts } from '@/lib/useProducts'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import { useCart } from '@/lib/CartContext'
 import Navbar from '@/components/layout/Navbar'
+
+const CAT_MAP: Record<string, { search?: string; lines?: string[] }> = {
+  shampoo:        { search: 'shampoo' },
+  acondicionador: { search: 'acondicionador' },
+  ampollas:       { search: 'ampolla' },
+  'sin-enjuague': { search: 'sin enjuague' },
+  mascaras:       { search: 'máscara' },
+  promos:         { search: 'promo' },
+  color:          { lines: ['Color', 'Tinturas', 'Oxidantes'] },
+  terminacion:    { lines: ['Terminación'] },
+  profesionales:  { lines: ['Bacha', 'Oxidantes', 'Tinturas', 'Color'] },
+  barberia:       { lines: ['Scotland'] },
+}
 
 const PRICE_MIN = 0
 const PRICE_MAX = 160
@@ -157,8 +170,18 @@ const DEFAULT_FILTERS: Filters = {
 export default function Catalog() {
   const { addItem } = useCart()
   const { products, loading, error } = useProducts()
-  const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS)
-  const [search, setSearch] = useState('')
+  const [searchParams] = useSearchParams()
+  const [filters, setFilters] = useState<Filters>(() => {
+    const cat = searchParams.get('cat')
+    const mapping = cat ? CAT_MAP[cat] : null
+    if (mapping?.lines) return { ...DEFAULT_FILTERS, lines: mapping.lines }
+    return DEFAULT_FILTERS
+  })
+  const [search, setSearch] = useState(() => {
+    const cat = searchParams.get('cat')
+    const mapping = cat ? CAT_MAP[cat] : null
+    return mapping?.search ?? ''
+  })
   const [sort, setSort] = useState<'default' | 'price-asc' | 'price-desc' | 'name-asc'>('default')
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
@@ -177,11 +200,21 @@ export default function Catalog() {
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim()
+    const isProfesionales = searchParams.get('cat') === 'profesionales'
     const result = products.filter((p) => {
-      if (q && !p.name.toLowerCase().includes(q) && !p.tagline.toLowerCase().includes(q)) return false
       if (p.price > filters.priceMax) return false
-      if (filters.lines.length > 0 && !filters.lines.includes(p.line)) return false
       if (filters.hairTypes.length > 0 && !filters.hairTypes.some((t) => p.hairType.includes(t))) return false
+      if (isProfesionales && filters.lines.length > 0) {
+        const n = p.name.toLowerCase()
+        const matchesLine = filters.lines.includes(p.line)
+        const matchesAmpolla = n.includes('ampolla')
+        const matchesDecolorante = n.includes('decolorante')
+        const matches5L = n.includes('5000ml')
+        if (!matchesLine && !matchesAmpolla && !matchesDecolorante && !matches5L) return false
+      } else {
+        if (q && !p.name.toLowerCase().includes(q) && !p.tagline.toLowerCase().includes(q)) return false
+        if (filters.lines.length > 0 && !filters.lines.includes(p.line)) return false
+      }
       return true
     })
     return [...result].sort((a, b) => {

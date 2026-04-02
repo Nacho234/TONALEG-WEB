@@ -1,110 +1,60 @@
 import { motion } from 'framer-motion'
-import { ShoppingBag, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 import SectionHeading from '@/components/common/SectionHeading'
-import { useProducts } from '@/lib/useProducts'
-import { useCart } from '@/lib/CartContext'
+
+const categories = [
+  { label: 'Shampoo',        cat: 'shampoo',       emoji: '🧴', bg: 'from-sky-50 to-blue-100',       accent: '#0ea5e9' },
+  { label: 'Acondicionador', cat: 'acondicionador', emoji: '💧', bg: 'from-teal-50 to-emerald-100',   accent: '#10b981' },
+  { label: 'Ampollas',       cat: 'ampollas',       emoji: '💊', bg: 'from-violet-50 to-purple-100',  accent: '#8b5cf6' },
+  { label: 'Sin Enjuague',   cat: 'sin-enjuague',   emoji: '✨', bg: 'from-yellow-50 to-amber-100',   accent: '#f59e0b' },
+  { label: 'Máscaras',       cat: 'mascaras',       emoji: '🫙', bg: 'from-rose-50 to-pink-100',      accent: '#f43f5e' },
+  { label: 'Promos',         cat: 'promos',         emoji: '🎁', bg: 'from-orange-50 to-red-100',     accent: '#ef4444' },
+  { label: 'Color',          cat: 'color',          emoji: '🎨', bg: 'from-amber-50 to-orange-100',   accent: '#c4913a' },
+  { label: 'Terminación',    cat: 'terminacion',    emoji: '💫', bg: 'from-stone-50 to-slate-100',    accent: '#b45309' },
+  { label: 'Profesionales',  cat: 'profesionales',  emoji: '🏆', bg: 'from-slate-50 to-gray-100',     accent: '#475569' },
+  { label: 'Barbería',       cat: 'barberia',       emoji: '💈', bg: 'from-zinc-50 to-neutral-100',   accent: '#3f3f46' },
+]
 
 export default function Products() {
-  const { addItem } = useCart()
-  const { products } = useProducts()
-  const featuredProducts = products.filter((p) => p.featured)
-
   return (
     <section id="productos" className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           label="La Colección"
-          title="Rituales de Lujo"
-          subtitle="Cada producto ha sido formulado con los ingredientes más selectos del mundo para transformar la salud y belleza de tu cabello."
+          title="Explorá por categoría"
+          subtitle="Encontrá el producto ideal para cada necesidad. Seleccioná una categoría y descubrí toda la línea."
         />
 
-        {featuredProducts.length === 0 ? null : (
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
+          className="grid grid-cols-2 md:grid-cols-5 gap-4"
         >
-          {featuredProducts.map((product) => (
-            <motion.div
-              key={product.id}
-              variants={fadeUp}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="group relative rounded-3xl overflow-hidden bg-white border border-[#f0ece8] shadow-[0_4px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(201,169,110,0.15)] hover:border-[#e8d5b5] transition-all duration-400"
-            >
-              {/* Product visual */}
-              <div className={`bg-gradient-to-br ${product.gradient} h-64 flex items-center justify-center relative overflow-hidden`}>
-                {product.badge && (
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="bg-[#1a1a1a] text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full shadow-md">
-                      {product.badge}
-                    </span>
-                  </div>
-                )}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="relative"
-                >
-                  <div className="relative w-20 h-36">
-                    <div
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-28 rounded-2xl shadow-xl"
-                      style={{ background: `linear-gradient(160deg, ${product.accent}cc, ${product.accent})` }}
-                    />
-                    <div
-                      className="absolute bottom-28 left-1/2 -translate-x-1/2 w-8 h-6 rounded-t-lg"
-                      style={{ background: product.accent }}
-                    />
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white/20 rounded-xl flex flex-col items-center justify-center gap-1">
-                      <div className="text-white text-[6px] font-bold tracking-widest">TONALEG</div>
-                      <div className="w-6 h-px bg-white/60" />
-                    </div>
-                  </div>
-                </motion.div>
-                <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full opacity-20" style={{ background: product.accent }} />
-                <div className="absolute -top-4 -left-4 w-20 h-20 rounded-full opacity-10" style={{ background: product.accent }} />
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <div className="mb-1">
-                  <span className="text-xs font-medium text-[#c9a96e] tracking-widest uppercase">
-                    {product.tagline}
-                  </span>
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-[#1a1a1a] mb-3">
-                  {product.name}
-                </h3>
-                {product.description && (
-                  <p className="text-sm text-[#6b6b6b] leading-relaxed mb-4">
-                    {product.description}
-                  </p>
-                )}
-
-                <div className="flex items-center justify-between mt-4">
-                  <span className="font-serif text-2xl font-bold text-[#1a1a1a]">
-                    {product.price}
-                  </span>
-                  <motion.button
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => addItem(product)}
-                    className="flex items-center gap-2 btn-gold px-5 py-2.5 rounded-full text-sm font-semibold"
-                  >
-                    <ShoppingBag size={15} />
-                    Añadir
-                  </motion.button>
-                </div>
-              </div>
-
-              <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ArrowRight size={16} className="text-[#c9a96e]" />
-              </div>
+          {categories.map((cat) => (
+            <motion.div key={cat.cat} variants={fadeUp}>
+              <Link
+                to={`/productos?cat=${cat.cat}`}
+                className="group flex flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-[#f0ece8] bg-gradient-to-br hover:shadow-[0_8px_30px_rgba(201,169,110,0.15)] hover:border-[#e8d5b5] transition-all duration-300 h-36"
+                style={{ background: `linear-gradient(135deg, ${cat.accent}0d, ${cat.accent}1a)` }}
+              >
+                <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                  {cat.emoji}
+                </span>
+                <span className="text-sm font-semibold text-[#1a1a1a] text-center tracking-wide">
+                  {cat.label}
+                </span>
+                <ArrowRight
+                  size={14}
+                  className="text-[#c9a96e] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </Link>
             </motion.div>
           ))}
         </motion.div>
-        )}
 
         <motion.div
           variants={fadeUp}
@@ -113,13 +63,13 @@ export default function Products() {
           viewport={{ once: true }}
           className="text-center mt-14"
         >
-          <a
-            href="#catalogo"
+          <Link
+            to="/productos"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#c9a96e] hover:gap-4 transition-all duration-300"
           >
             Ver toda la colección
             <ArrowRight size={16} />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
