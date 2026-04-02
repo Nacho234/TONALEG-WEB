@@ -66,13 +66,13 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
           {/* Logo with animated underline */}
-          <a href="#" className="flex items-center relative group">
+          <Link to="/" className="flex items-center relative group">
             <img src="/logo.png" alt="TONALEG" className="h-9 w-auto object-contain" />
             <motion.div
               style={{ width: logoLineWidth }}
               className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-[#c9a96e] to-transparent"
             />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
