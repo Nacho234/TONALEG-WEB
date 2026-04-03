@@ -15,7 +15,7 @@ export default function EmailCapture() {
   }
 
   return (
-    <section id="contacto" className="py-28" style={{ background: 'linear-gradient(135deg, #0f0a1e 0%, #1e0a3c 40%, #0a1628 70%, #1a0a2e 100%)' }}>
+    <section id="contacto" className="py-28" style={{ background: 'linear-gradient(135deg, #f5f3ff 0%, #fce7f3 50%, #f0e6ff 100%)' }}>
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           variants={staggerContainer}
@@ -25,28 +25,28 @@ export default function EmailCapture() {
         >
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8"
+            className="inline-flex items-center gap-2 bg-[#a855f7]/10 border border-[#a855f7]/20 rounded-full px-4 py-2 mb-8"
           >
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[#c4b5fd]">
+            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7c3aed]">
               Exclusivo para suscriptores
             </span>
           </motion.div>
 
           <motion.h2
             variants={fadeUp}
-            className="font-serif text-4xl md:text-5xl font-semibold text-white mb-4 leading-tight"
+            className="font-serif text-4xl md:text-5xl font-semibold text-[#1a1a1a] mb-4 leading-tight"
           >
             Sé la Primera en<br />Descubrir lo Nuevo
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="text-lg text-white/60 mb-6 leading-relaxed"
+            className="text-lg text-[#6b6b6b] mb-6 leading-relaxed"
           >
             Únete a nuestra comunidad y disfruta de beneficios exclusivos desde el primer día.
           </motion.p>
 
-          <motion.ul variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center mb-2 text-sm text-white/60">
+          <motion.ul variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center mb-2 text-sm text-[#6b6b6b]">
             {[
               '15% de descuento en tu primer pedido',
               'Acceso anticipado a nuevos lanzamientos',
@@ -73,7 +73,7 @@ export default function EmailCapture() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="tu@email.com"
                 required
-                className="flex-1 px-5 py-4 rounded-full border border-white/20 bg-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#a855f7] focus:ring-2 focus:ring-[#a855f7]/30 transition-all text-sm"
+                className="flex-1 px-5 py-4 rounded-full border border-[#a855f7]/25 bg-white text-[#1a1a1a] placeholder-[#6b6b6b]/50 focus:outline-none focus:border-[#a855f7] focus:ring-2 focus:ring-[#a855f7]/20 transition-all text-sm"
               />
               <motion.button
                 type="submit"
@@ -102,7 +102,7 @@ export default function EmailCapture() {
 
           <motion.p
             variants={fadeUp}
-            className="text-xs text-white/30 mt-4"
+            className="text-xs text-[#6b6b6b]/60 mt-4"
           >
             Sin spam. Cancela cuando quieras. Privacidad garantizada.
           </motion.p>

@@ -26,7 +26,7 @@ export default function Hero() {
 
   return (
     <section id="hero" ref={ref} className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0f0a1e 0%, #1e0a3c 35%, #0a1628 65%, #1a0a2e 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #faf5ff 0%, #f0e6ff 35%, #fce7f3 65%, #f5f3ff 100%)' }}
     >
       {/* Parallax background blobs */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none">
@@ -34,10 +34,10 @@ export default function Hero() {
         {/* Base mesh gradient */}
         <div className="absolute inset-0" style={{
           background: `
-            radial-gradient(ellipse 80% 60% at 70% 20%, rgba(168,85,247,0.18) 0%, transparent 60%),
-            radial-gradient(ellipse 60% 50% at 20% 80%, rgba(236,72,153,0.14) 0%, transparent 55%),
-            radial-gradient(ellipse 50% 40% at 90% 85%, rgba(20,184,166,0.10) 0%, transparent 50%),
-            radial-gradient(ellipse 70% 60% at 10% 20%, rgba(139,92,246,0.12) 0%, transparent 60%)
+            radial-gradient(ellipse 80% 60% at 70% 20%, rgba(168,85,247,0.25) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 50% at 20% 80%, rgba(236,72,153,0.20) 0%, transparent 55%),
+            radial-gradient(ellipse 50% 40% at 90% 85%, rgba(20,184,166,0.15) 0%, transparent 50%),
+            radial-gradient(ellipse 70% 60% at 10% 20%, rgba(139,92,246,0.18) 0%, transparent 60%)
           `
         }} />
 
@@ -46,7 +46,7 @@ export default function Hero() {
           animate={{ scale: [1, 1.15, 1], x: [0, 20, 0], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute -top-10 right-0 w-[550px] h-[550px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(168,85,247,0.22) 0%, rgba(139,92,246,0.08) 40%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(168,85,247,0.30) 0%, rgba(139,92,246,0.12) 40%, transparent 70%)' }}
         />
         <motion.div
           animate={{ scale: [1, 1.08, 1], x: [0, -15, 0], opacity: [0.4, 0.7, 0.4] }}
@@ -100,9 +100,9 @@ export default function Hero() {
             animate="visible"
             className="text-left z-10"
           >
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-8">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-[#a855f7]/10 border border-[#a855f7]/20 rounded-full px-4 py-2 mb-8">
               <Sparkles size={14} className="text-[#a855f7]" />
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[#e9d5ff]">
+              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[#7c3aed]">
                 Cosmética Capilar Premium
               </span>
             </motion.div>
@@ -110,7 +110,7 @@ export default function Hero() {
             <div className="overflow-hidden mb-2">
               <motion.h1
                 variants={staggerContainer}
-                className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-white"
+                className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-[#1a1a1a]"
               >
                 {words.map((word, i) => (
                   <span key={i} className="overflow-hidden inline-block mr-4">
@@ -135,7 +135,7 @@ export default function Hero() {
               </motion.h1>
             </div>
 
-            <motion.p variants={fadeUp} className="text-xl text-white/70 leading-relaxed mb-10 max-w-lg mt-6">
+            <motion.p variants={fadeUp} className="text-xl text-[#6b6b6b] leading-relaxed mb-10 max-w-lg mt-6">
               Formulaciones científicas de alta gama, inspiradas en la naturaleza.
               Porque cada hebra merece el mejor cuidado del mundo.
             </motion.p>
@@ -154,13 +154,13 @@ export default function Hero() {
                 href="#historia"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold border border-white/25 text-white hover:border-[#a855f7] hover:text-[#c4b5fd] transition-all duration-300 bg-transparent"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold border border-[#1a1a1a]/20 text-[#1a1a1a] hover:border-[#a855f7] hover:text-[#7c3aed] transition-all duration-300 bg-transparent"
               >
                 Nuestra Historia
               </motion.a>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="flex items-center gap-0 mt-12 pt-8 border-t border-white/10">
+            <motion.div variants={fadeUp} className="flex items-center gap-0 mt-12 pt-8 border-t border-[#a855f7]/15">
               {[
                 { value: '50K+', label: 'Clientas Satisfechas' },
                 { value: '15+', label: 'Países' },
@@ -168,10 +168,10 @@ export default function Hero() {
               ].map((stat, i) => (
                 <div key={stat.label} className="flex items-center">
                   <div className="text-center px-6 first:pl-0">
-                    <div className="text-2xl font-bold font-serif text-white">{stat.value}</div>
-                    <div className="text-xs text-white/50 mt-1 whitespace-nowrap">{stat.label}</div>
+                    <div className="text-2xl font-bold font-serif text-[#1a1a1a]">{stat.value}</div>
+                    <div className="text-xs text-[#6b6b6b] mt-1 whitespace-nowrap">{stat.label}</div>
                   </div>
-                  {i < 2 && <div className="w-px h-10 bg-white/15 flex-shrink-0" />}
+                  {i < 2 && <div className="w-px h-10 bg-[#a855f7]/20 flex-shrink-0" />}
                 </div>
               ))}
             </motion.div>
@@ -187,10 +187,10 @@ export default function Hero() {
           className="relative flex items-center justify-center z-10"
         >
           <div className="relative w-full max-w-md">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#a855f7]/30 via-[#7c3aed]/20 to-[#ec4899]/30 rounded-[40px] transform rotate-3" />
-            <div className="relative bg-gradient-to-br from-[#1e0a3c]/90 to-[#0f0a1e]/90 rounded-[36px] p-10 shadow-2xl border border-white/10 backdrop-blur-sm">
-              <div className="absolute top-6 right-6 w-16 h-16 rounded-full bg-[#a855f7]/15 flex items-center justify-center">
-                <div className="w-8 h-8 rounded-full bg-[#a855f7]/25" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#a855f7]/20 via-[#c4b5fd]/15 to-[#ec4899]/20 rounded-[40px] transform rotate-3" />
+            <div className="relative bg-white/80 rounded-[36px] p-10 shadow-2xl border border-[#a855f7]/15 backdrop-blur-sm">
+              <div className="absolute top-6 right-6 w-16 h-16 rounded-full bg-[#a855f7]/10 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-[#a855f7]/20" />
               </div>
 
               <div className="flex flex-col items-center py-8 gap-6">
@@ -229,13 +229,13 @@ export default function Hero() {
                 </div>
 
                 <div className="text-center">
-                  <h3 className="font-serif text-xl font-semibold text-white mb-1">Sérum Reparador</h3>
-                  <p className="text-sm text-white/50">Intensive Hair Repair</p>
+                  <h3 className="font-serif text-xl font-semibold text-[#1a1a1a] mb-1">Sérum Reparador</h3>
+                  <p className="text-sm text-[#6b6b6b]">Intensive Hair Repair</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2 justify-center">
                   {['Argán', 'Queratina', 'Biotina'].map((ing) => (
-                    <span key={ing} className="text-xs px-3 py-1.5 bg-white/10 text-[#c4b5fd] rounded-full font-medium border border-white/15">
+                    <span key={ing} className="text-xs px-3 py-1.5 bg-[#f5f3ff] text-[#7c3aed] rounded-full font-medium border border-[#a855f7]/20">
                       {ing}
                     </span>
                   ))}
@@ -247,11 +247,11 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8, x: 20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ delay: 1.2 }}
-              className="absolute -right-6 top-1/3 rounded-2xl px-4 py-3 shadow-xl border border-white/15"
-              style={{ background: 'rgba(30, 10, 60, 0.85)', backdropFilter: 'blur(12px)' }}
+              className="absolute -right-6 top-1/3 rounded-2xl px-4 py-3 shadow-xl border border-[#a855f7]/15"
+              style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)' }}
             >
-              <div className="text-xs text-white/50 mb-0.5">Resultado en</div>
-              <div className="font-bold text-white text-sm">4 semanas</div>
+              <div className="text-xs text-[#6b6b6b] mb-0.5">Resultado en</div>
+              <div className="font-bold text-[#1a1a1a] text-sm">4 semanas</div>
               <div className="flex gap-0.5 mt-1">
                 {[1,2,3,4,5].map(i => <span key={i} className="text-[#a855f7] text-xs">★</span>)}
               </div>
@@ -261,16 +261,16 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8, x: -20 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ delay: 1.4 }}
-              className="absolute -left-6 bottom-1/4 rounded-2xl px-4 py-3 shadow-xl border border-white/15"
-              style={{ background: 'rgba(30, 10, 60, 0.85)', backdropFilter: 'blur(12px)' }}
+              className="absolute -left-6 bottom-1/4 rounded-2xl px-4 py-3 shadow-xl border border-[#a855f7]/15"
+              style={{ background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(12px)' }}
             >
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <span className="text-emerald-400 text-xs">✓</span>
+                <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
+                  <span className="text-emerald-600 text-xs">✓</span>
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-white">100% Natural</div>
-                  <div className="text-[10px] text-white/50">Cruelty Free</div>
+                  <div className="text-xs font-semibold text-[#1a1a1a]">100% Natural</div>
+                  <div className="text-[10px] text-[#6b6b6b]">Cruelty Free</div>
                 </div>
               </div>
             </motion.div>
@@ -285,7 +285,7 @@ export default function Hero() {
         transition={{ delay: 2.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-white/40 tracking-widest uppercase">Scroll</span>
+        <span className="text-xs text-[#6b6b6b] tracking-widest uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}

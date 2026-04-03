@@ -10,7 +10,7 @@ const navLinks = {
 
 export default function Footer() {
   return (
-    <footer className="text-white" style={{ background: 'linear-gradient(135deg, #0f0a1e 0%, #1a0a2e 100%)' }}>
+    <footer className="text-white" style={{ background: 'linear-gradient(135deg, #2e1065 0%, #1e1b4b 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Main footer grid */}
         <motion.div
