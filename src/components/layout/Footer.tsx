@@ -10,7 +10,7 @@ const navLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1a1a] text-white">
+    <footer className="text-white" style={{ background: 'linear-gradient(135deg, #0f0a1e 0%, #1a0a2e 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Main footer grid */}
         <motion.div
@@ -23,7 +23,7 @@ export default function Footer() {
           {/* Brand column */}
           <motion.div variants={fadeUp} className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#c9a96e] to-[#a8854d] flex items-center justify-center shadow-lg">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#a855f7] to-[#7c3aed] flex items-center justify-center shadow-lg shadow-purple-500/30">
                 <span className="text-white text-sm font-bold">T</span>
               </div>
               <span className="font-serif text-xl font-semibold tracking-wide">TONALEG</span>
@@ -45,7 +45,7 @@ export default function Footer() {
                   key={i}
                   href={href}
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-white/40 hover:text-[#c9a96e] hover:border-[#c9a96e]/40 transition-all duration-300"
+                  className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-white/40 hover:text-[#c4b5fd] hover:border-[#a855f7]/40 transition-all duration-300"
                 >
                   <Icon size={16} />
                 </motion.a>
@@ -56,7 +56,7 @@ export default function Footer() {
           {/* Nav columns */}
           {Object.entries(navLinks).map(([title, links]) => (
             <motion.div key={title} variants={fadeUp}>
-              <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-[#c9a96e] mb-6">
+              <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-[#c4b5fd] mb-6">
                 {title}
               </h4>
               <ul className="space-y-3">
@@ -93,7 +93,7 @@ export default function Footer() {
               variants={fadeUp}
               className="flex items-center gap-3 text-white/40 hover:text-white/70 transition-colors"
             >
-              <Icon size={14} className="text-[#c9a96e]" />
+              <Icon size={14} className="text-[#a855f7]" />
               <span className="text-sm">{text}</span>
             </motion.div>
           ))}

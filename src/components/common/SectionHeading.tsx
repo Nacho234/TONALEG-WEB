@@ -25,7 +25,7 @@ export default function SectionHeading({
       className={`mb-16 ${centered ? 'text-center' : ''}`}
     >
       {label && (
-        <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-[#c9a96e] mb-4">
+        <span className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4 ${light ? 'text-[#c4b5fd]' : 'text-[#a855f7]'}`}>
           {label}
         </span>
       )}

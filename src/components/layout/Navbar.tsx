@@ -30,10 +30,10 @@ export default function Navbar() {
     'rgba(255,255,255,0.82)',
   ])
   const navBlur = useTransform(scrollProgress, [0, 1], [0, 20])
-  const navBorderOpacity = useTransform(scrollProgress, [0, 1], [0, 0.12])
+  const navBorderOpacity = useTransform(scrollProgress, [0, 1], [0, 0.15])
   const navShadow = useTransform(scrollProgress, [0, 1], [
-    '0 0px 0px rgba(201,169,110,0)',
-    '0 4px 32px rgba(201,169,110,0.10)',
+    '0 0px 0px rgba(168,85,247,0)',
+    '0 4px 32px rgba(168,85,247,0.12)',
   ])
   const navPy = useTransform(scrollProgress, [0, 1], [20, 12])
 
@@ -57,7 +57,7 @@ export default function Navbar() {
           backdropFilter: useTransform(navBlur, (v) => `blur(${v}px) saturate(180%)`),
           WebkitBackdropFilter: useTransform(navBlur, (v) => `blur(${v}px) saturate(180%)`),
           boxShadow: navShadow,
-          borderBottom: useTransform(navBorderOpacity, (v) => `1px solid rgba(201,169,110,${v})`),
+          borderBottom: useTransform(navBorderOpacity, (v) => `1px solid rgba(168,85,247,${v})`),
           paddingTop: navPy,
           paddingBottom: navPy,
         }}
@@ -70,7 +70,7 @@ export default function Navbar() {
             <img src="/logo.png" alt="TONALEG" className="h-9 w-auto object-contain" />
             <motion.div
               style={{ width: logoLineWidth }}
-              className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-[#c9a96e] to-transparent"
+              className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-[#a855f7] to-transparent"
             />
           </Link>
 
@@ -88,7 +88,7 @@ export default function Navbar() {
                 >
                   {link.label}
                   <motion.span
-                    className="absolute bottom-0 left-0 h-px bg-[#c9a96e] rounded-full"
+                    className="absolute bottom-0 left-0 h-px bg-[#a855f7] rounded-full"
                     animate={{ width: activeLink === link.href ? '100%' : '0%' }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                   />
@@ -104,7 +104,7 @@ export default function Navbar() {
                 >
                   {link.label}
                   <motion.span
-                    className="absolute bottom-0 left-0 h-px bg-[#c9a96e] rounded-full"
+                    className="absolute bottom-0 left-0 h-px bg-[#a855f7] rounded-full"
                     animate={{ width: isActive || activeLink === link.href ? '100%' : '0%' }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                   />
@@ -120,14 +120,14 @@ export default function Navbar() {
               onClick={() => openCart(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative w-10 h-10 rounded-full border border-[#e8d5b5] flex items-center justify-center text-[#6b6b6b] hover:text-[#c9a96e] hover:border-[#c9a96e] transition-all duration-300"
+              className="relative w-10 h-10 rounded-full border border-[#a855f7]/30 flex items-center justify-center text-[#6b6b6b] hover:text-[#a855f7] hover:border-[#a855f7] transition-all duration-300"
             >
               <ShoppingBag size={18} />
               {count > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#c9a96e] text-white text-[9px] font-bold flex items-center justify-center"
+                  className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#a855f7] text-white text-[9px] font-bold flex items-center justify-center"
                 >
                   {count > 9 ? '9+' : count}
                 </motion.span>
@@ -148,11 +148,11 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={() => openCart(true)}
-              className="relative p-2 text-[#1a1a1a] hover:text-[#c9a96e] transition-colors"
+              className="relative p-2 text-[#1a1a1a] hover:text-[#a855f7] transition-colors"
             >
               <ShoppingBag size={20} />
               {count > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#c9a96e] text-white text-[8px] font-bold flex items-center justify-center">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#a855f7] text-white text-[8px] font-bold flex items-center justify-center">
                   {count > 9 ? '9+' : count}
                 </span>
               )}
@@ -162,7 +162,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 text-[#1a1a1a] hover:text-[#c9a96e] transition-colors"
+            className="md:hidden p-2 text-[#1a1a1a] hover:text-[#a855f7] transition-colors"
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -197,10 +197,10 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
                   onClick={() => setMenuOpen(false)}
-                  className="font-serif text-2xl font-semibold text-[#1a1a1a] hover:text-[#c9a96e] transition-colors relative group"
+                  className="font-serif text-2xl font-semibold text-[#1a1a1a] hover:text-[#a855f7] transition-colors relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-full h-px bg-[#c9a96e] transition-all duration-300 rounded-full" />
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-full h-px bg-[#a855f7] transition-all duration-300 rounded-full" />
                 </motion.a>
               ) : (
                 <motion.div
@@ -212,10 +212,10 @@ export default function Navbar() {
                   <Link
                     to={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="font-serif text-2xl font-semibold text-[#1a1a1a] hover:text-[#c9a96e] transition-colors relative group"
+                    className="font-serif text-2xl font-semibold text-[#1a1a1a] hover:text-[#a855f7] transition-colors relative group"
                   >
                     {link.label}
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-full h-px bg-[#c9a96e] transition-all duration-300 rounded-full" />
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-full h-px bg-[#a855f7] transition-all duration-300 rounded-full" />
                   </Link>
                 </motion.div>
               )

@@ -19,7 +19,7 @@ const categories = [
 
 export default function Products() {
   return (
-    <section id="productos" className="py-28 bg-white">
+    <section id="productos" className="py-28" style={{ background: 'linear-gradient(180deg, #faf5ff 0%, #ffffff 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           label="La Colección"
@@ -38,7 +38,7 @@ export default function Products() {
             <motion.div key={cat.cat} variants={fadeUp}>
               <Link
                 to={`/productos?cat=${cat.cat}`}
-                className="group flex flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-[#f0ece8] bg-gradient-to-br hover:shadow-[0_8px_30px_rgba(201,169,110,0.15)] hover:border-[#e8d5b5] transition-all duration-300 h-36"
+                className="group flex flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-[#a855f7]/15 bg-gradient-to-br hover:shadow-[0_8px_30px_rgba(168,85,247,0.2)] hover:border-[#a855f7]/40 transition-all duration-300 h-36"
                 style={{ background: `linear-gradient(135deg, ${cat.accent}0d, ${cat.accent}1a)` }}
               >
                 <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
@@ -49,7 +49,7 @@ export default function Products() {
                 </span>
                 <ArrowRight
                   size={14}
-                  className="text-[#c9a96e] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="text-[#a855f7] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 />
               </Link>
             </motion.div>
@@ -65,7 +65,7 @@ export default function Products() {
         >
           <Link
             to="/productos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#c9a96e] hover:gap-4 transition-all duration-300"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#a855f7] hover:gap-4 transition-all duration-300"
           >
             Ver toda la colección
             <ArrowRight size={16} />

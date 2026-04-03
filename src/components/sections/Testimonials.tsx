@@ -23,7 +23,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section id="resenas" className="py-28 bg-gradient-to-br from-[#fafaf9] via-white to-[#fafaf9] overflow-hidden">
+    <section id="resenas" className="py-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #faf5ff 0%, #f5f3ff 50%, #fdf4ff 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-end justify-between mb-12 flex-wrap gap-6">
           <motion.div
@@ -32,10 +32,10 @@ export default function Testimonials() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#c9a96e] mb-4 block">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#a855f7] mb-4 block">
               Testimonios
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-[#1a1a1a] leading-tight">
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-[#0f0a1e] leading-tight">
               Amado por<br />Miles
             </h2>
           </motion.div>
@@ -49,13 +49,13 @@ export default function Testimonials() {
           >
             <button
               onClick={() => scroll('left')}
-              className="w-12 h-12 rounded-full border border-[#e8d5b5] flex items-center justify-center text-[#1a1a1a] hover:bg-[#c9a96e] hover:text-white hover:border-[#c9a96e] transition-all duration-300"
+              className="w-12 h-12 rounded-full border border-[#a855f7]/30 flex items-center justify-center text-[#6b6b6b] hover:bg-[#a855f7] hover:text-white hover:border-[#a855f7] transition-all duration-300"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="w-12 h-12 rounded-full border border-[#e8d5b5] flex items-center justify-center text-[#1a1a1a] hover:bg-[#c9a96e] hover:text-white hover:border-[#c9a96e] transition-all duration-300"
+              className="w-12 h-12 rounded-full border border-[#a855f7]/30 flex items-center justify-center text-[#6b6b6b] hover:bg-[#a855f7] hover:text-white hover:border-[#a855f7] transition-all duration-300"
             >
               <ChevronRight size={20} />
             </button>
@@ -79,14 +79,14 @@ export default function Testimonials() {
                 variants={fadeUp}
                 className="flex-none w-80 md:w-96 snap-start"
               >
-                <div className="glass-card rounded-3xl p-8 h-full hover:shadow-[0_20px_60px_rgba(201,169,110,0.12)] hover:border-[#e8d5b5] transition-all duration-300 border border-white/80 flex flex-col">
+                <div className="rounded-3xl p-8 h-full bg-white border border-[#a855f7]/15 hover:border-[#a855f7]/35 hover:shadow-[0_20px_60px_rgba(168,85,247,0.12)] transition-all duration-300 flex flex-col">
                   {/* Decorative quote mark */}
-                  <div className="text-5xl leading-none font-serif text-[#c9a96e]/25 mb-2 select-none">&ldquo;</div>
+                  <div className="text-5xl leading-none font-serif mb-2 select-none" style={{ color: 'rgba(168,85,247,0.2)' }}>&ldquo;</div>
 
                   {/* Stars */}
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: t.rating }).map((_, i) => (
-                      <span key={i} className="text-[#c9a96e] text-sm">★</span>
+                      <span key={i} className="text-[#a855f7] text-sm">★</span>
                     ))}
                   </div>
 
@@ -96,7 +96,7 @@ export default function Testimonials() {
                   </blockquote>
 
                   {/* Author */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-[#f0ece8]">
+                  <div className="flex items-center gap-4 pt-6 border-t border-[#a855f7]/10">
                     <div
                       className="w-11 h-11 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 shadow-md"
                       style={{ background: `linear-gradient(135deg, ${t.color}, ${t.color}aa)` }}
@@ -122,7 +122,7 @@ export default function Testimonials() {
               className="h-1.5 rounded-full transition-all duration-300"
               style={{
                 width: i === activeIndex ? '24px' : '6px',
-                background: i === activeIndex ? '#c9a96e' : '#e8d5b5',
+                background: i === activeIndex ? '#a855f7' : '#ddd6fe',
               }}
             />
           ))}

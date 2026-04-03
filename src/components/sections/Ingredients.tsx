@@ -4,7 +4,7 @@ import { ingredients } from '@/lib/data/ingredients'
 
 export default function Ingredients() {
   return (
-    <section id="ingredientes" className="py-28 bg-gradient-to-br from-[#fafaf9] to-[#f0ece8]">
+    <section id="ingredientes" className="py-28" style={{ background: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #fdf4ff 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left - Visual */}
@@ -16,14 +16,14 @@ export default function Ingredients() {
             className="relative"
           >
             {/* Main card */}
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#c9a96e]/15 via-[#f0ece8] to-white p-10 min-h-[480px] flex flex-col justify-between border border-[#e8d5b5]/50 shadow-[0_20px_60px_rgba(201,169,110,0.1)]">
+            <div className="relative rounded-3xl overflow-hidden p-10 min-h-[480px] flex flex-col justify-between border border-[#a855f7]/20 shadow-[0_20px_60px_rgba(168,85,247,0.15)]" style={{ background: 'linear-gradient(135deg, rgba(168,85,247,0.08) 0%, #ffffff 50%, rgba(236,72,153,0.06) 100%)' }}>
               {/* Decorative large text */}
-              <div className="absolute top-6 right-6 font-serif text-[120px] font-bold text-[#c9a96e]/5 leading-none select-none">
+              <div className="absolute top-6 right-6 font-serif text-[120px] font-bold leading-none select-none" style={{ color: 'rgba(168,85,247,0.06)' }}>
                 N
               </div>
 
               <div>
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#c9a96e] mb-4 block">
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#a855f7] mb-4 block">
                   Origen & Pureza
                 </span>
                 <h3 className="font-serif text-3xl font-bold text-[#1a1a1a] mb-6 leading-tight">
@@ -44,7 +44,7 @@ export default function Ingredients() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.1 }}
-                    className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-lg border border-[#f0ece8]"
+                    className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-lg border border-[#a855f7]/20"
                   >
                     {flag}
                   </motion.div>
@@ -61,9 +61,9 @@ export default function Ingredients() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="absolute -bottom-5 -right-5 glass-card rounded-2xl p-5 shadow-xl"
+              className="absolute -bottom-5 -right-5 rounded-2xl p-5 shadow-xl border border-[#a855f7]/20 bg-white"
             >
-              <div className="text-3xl font-bold font-serif text-[#1a1a1a]">97%</div>
+              <div className="text-3xl font-bold font-serif text-[#7c3aed]">97%</div>
               <div className="text-xs text-[#6b6b6b] mt-1">Ingredientes<br />de origen natural</div>
             </motion.div>
           </motion.div>
@@ -77,7 +77,7 @@ export default function Ingredients() {
               viewport={{ once: true }}
               className="mb-8"
             >
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#c9a96e] mb-4 block">
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#a855f7] mb-4 block">
                 Ingredientes Estrella
               </span>
               <h2 className="font-serif text-4xl md:text-5xl font-semibold text-[#1a1a1a] mb-4 leading-tight">
@@ -107,14 +107,14 @@ export default function Ingredients() {
                       transition: { duration: 0.5, delay: i * 0.1 },
                     },
                   }}
-                  className="flex items-center gap-5 p-4 rounded-2xl bg-white border border-[#f0ece8] hover:border-[#e8d5b5] hover:shadow-md transition-all duration-300 group"
+                  className="flex items-center gap-5 p-4 rounded-2xl bg-white border border-[#a855f7]/15 hover:border-[#a855f7]/40 hover:shadow-md hover:shadow-purple-100 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#f0ece8] to-[#fafaf9] flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#f5f3ff] to-[#ede9fe] flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-110 transition-transform">
                     {ing.emoji}
                   </div>
                   <div className="flex-1">
                     <div className="font-semibold text-[#1a1a1a] text-sm mb-0.5">{ing.name}</div>
-                    <div className="text-xs text-[#c9a96e] font-medium">{ing.benefit}</div>
+                    <div className="text-xs text-[#a855f7] font-medium">{ing.benefit}</div>
                   </div>
                   <div className="text-xs text-[#6b6b6b] text-right">
                     <div className="font-medium">Origen</div>

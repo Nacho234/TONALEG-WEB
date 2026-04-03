@@ -12,11 +12,11 @@ const stats = [
 
 export default function Results() {
   return (
-    <section className="py-28 bg-[#1a1a1a] overflow-hidden relative">
+    <section className="py-28 overflow-hidden relative" style={{ background: 'linear-gradient(135deg, #0f0a1e 0%, #1e0a3c 40%, #0a1628 70%, #1a0a2e 100%)' }}>
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#c9a96e]/5 blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-[#c9a96e]/5 blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#a855f7]/8 blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-[#ec4899]/8 blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -81,10 +81,10 @@ export default function Results() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-br from-[#c9a96e]/20 to-[#1a1a1a] border border-[#c9a96e]/30 rounded-3xl overflow-hidden relative">
+            <div className="bg-gradient-to-br from-[#a855f7]/20 to-[#0f0a1e] border border-[#a855f7]/30 rounded-3xl overflow-hidden relative">
               <div className="p-8 text-center relative">
-                <div className="text-[#c9a96e] text-xs font-semibold tracking-widest uppercase mb-6">Después · 4 semanas</div>
-                <div className="w-44 h-44 mx-auto mb-6 rounded-full border-4 border-[#c9a96e]/40 overflow-hidden bg-[#1a1a1a]">
+                <div className="text-[#c4b5fd] text-xs font-semibold tracking-widest uppercase mb-6">Después · 4 semanas</div>
+                <div className="w-44 h-44 mx-auto mb-6 rounded-full border-4 border-[#a855f7]/40 overflow-hidden bg-[#0f0a1e]">
                   <img
                     src="https://res.cloudinary.com/deyt2fnfa/image/upload/v1774973355/2_k9sn9j.png"
                     alt="Después"
@@ -104,7 +104,7 @@ export default function Results() {
                   key={i}
                   animate={{ opacity: [0, 1, 0], scale: [0.5, 1.2, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity, delay: i * 0.7 }}
-                  className="absolute text-[#c9a96e] text-lg pointer-events-none"
+                  className="absolute text-[#a855f7] text-lg pointer-events-none"
                   style={pos}
                 >
                   ✦

@@ -19,7 +19,7 @@ const steps = [
     title: 'Trata',
     subtitle: 'Nutrición Intensiva',
     description: 'Aplica el sérum o aceite reparador en el cabello húmedo. La fórmula penetra en la fibra capilar y actúa desde el interior.',
-    color: '#c9a96e',
+    color: '#a855f7',
     bg: 'from-amber-50 to-yellow-50',
   },
   {
@@ -35,7 +35,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="ritual" className="py-28 bg-white">
+    <section id="ritual" className="py-28 bg-white" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #faf5ff 100%)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           label="El Ritual"
@@ -52,7 +52,7 @@ export default function HowItWorks() {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               style={{ transformOrigin: 'left' }}
-              className="h-px bg-gradient-to-r from-[#a8c4d4] via-[#c9a96e] to-[#8fad88]"
+              className="h-px bg-gradient-to-r from-[#38bdf8] via-[#a855f7] to-[#34d399]"
             />
           </div>
 
@@ -74,7 +74,7 @@ export default function HowItWorks() {
                   {/* Step circle */}
                   <motion.div
                     whileHover={{ scale: 1.08 }}
-                    className={`w-16 h-16 rounded-full bg-gradient-to-br ${step.bg} border-2 flex items-center justify-center mb-8 relative z-10 shadow-lg`}
+                    className={`w-16 h-16 rounded-full bg-gradient-to-br ${step.bg} border-2 flex items-center justify-center mb-8 relative z-10 shadow-lg shadow-purple-100`}
                     style={{ borderColor: `${step.color}40` }}
                   >
                     <Icon size={24} style={{ color: step.color }} />
@@ -87,14 +87,14 @@ export default function HowItWorks() {
                   </motion.div>
 
                   {/* Content */}
-                  <div className="bg-white border border-[#f0ece8] rounded-3xl p-8 w-full group-hover:border-[#e8d5b5] group-hover:shadow-lg transition-all duration-300">
+                  <div className="bg-white border border-[#a855f7]/15 rounded-3xl p-8 w-full group-hover:border-[#a855f7]/35 group-hover:shadow-lg group-hover:shadow-purple-50 transition-all duration-300">
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-2"
                       style={{ color: step.color }}
                     >
                       {step.subtitle}
                     </div>
-                    <h3 className="font-serif text-2xl font-bold text-[#1a1a1a] mb-4">
+                    <h3 className="font-serif text-2xl font-bold text-[#0f0a1e] mb-4">
                       {step.title}
                     </h3>
                     <p className="text-[#6b6b6b] text-sm leading-relaxed">

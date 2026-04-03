@@ -53,7 +53,7 @@ export default function ProductCarousel() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#c9a96e] mb-3 block">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#a855f7] mb-3 block">
               Colección Completa
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-semibold text-[#1a1a1a] leading-tight">
@@ -72,8 +72,8 @@ export default function ProductCarousel() {
               onClick={() => goTo(current - 1)}
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 ${
                 current === 0
-                  ? 'border-[#f0ece8] text-[#1a1a1a]/20 cursor-not-allowed'
-                  : 'border-[#e8d5b5] text-[#1a1a1a] hover:bg-[#c9a96e] hover:text-white hover:border-[#c9a96e]'
+                  ? 'border-[#ede9fe] text-[#1a1a1a]/20 cursor-not-allowed'
+                  : 'border-[#ddd6fe] text-[#1a1a1a] hover:bg-[#a855f7] hover:text-white hover:border-[#a855f7]'
               }`}
             >
               <ArrowLeft size={18} />
@@ -82,8 +82,8 @@ export default function ProductCarousel() {
               onClick={() => goTo(current + 1)}
               className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 ${
                 current === carouselProducts.length - 1
-                  ? 'border-[#f0ece8] text-[#1a1a1a]/20 cursor-not-allowed'
-                  : 'border-[#e8d5b5] text-[#1a1a1a] hover:bg-[#c9a96e] hover:text-white hover:border-[#c9a96e]'
+                  ? 'border-[#ede9fe] text-[#1a1a1a]/20 cursor-not-allowed'
+                  : 'border-[#ddd6fe] text-[#1a1a1a] hover:bg-[#a855f7] hover:text-white hover:border-[#a855f7]'
               }`}
             >
               <ArrowRight size={18} />
@@ -114,12 +114,12 @@ export default function ProductCarousel() {
                 transition={{ duration: 0.4 }}
                 className="cursor-grab active:cursor-grabbing"
               >
-                <div className="rounded-3xl overflow-hidden bg-white border border-[#f0ece8] shadow-[0_4px_30px_rgba(0,0,0,0.04)] select-none">
+                <div className="rounded-3xl overflow-hidden bg-white border border-[#ede9fe] shadow-[0_4px_30px_rgba(0,0,0,0.04)] select-none">
                   {/* Image area */}
                   <div className={`bg-gradient-to-br ${product.gradient} h-56 flex items-center justify-center relative overflow-hidden`}>
                     {product.badge && (
                       <div className="absolute top-4 left-4">
-                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#c9a96e] text-white">
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#a855f7] text-white">
                           {product.badge}
                         </span>
                       </div>
@@ -142,7 +142,7 @@ export default function ProductCarousel() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="text-xs font-medium text-[#c9a96e] tracking-widest uppercase mb-1">{product.tagline}</div>
+                    <div className="text-xs font-medium text-[#a855f7] tracking-widest uppercase mb-1">{product.tagline}</div>
                     <h3 className="font-serif text-xl font-semibold text-[#1a1a1a] mb-2">{product.name}</h3>
                     <p className="text-sm text-[#6b6b6b] leading-relaxed mb-5 line-clamp-2">{product.description}</p>
                     <div className="flex items-center justify-between">
@@ -167,7 +167,7 @@ export default function ProductCarousel() {
               className="h-1.5 rounded-full transition-all duration-300"
               style={{
                 width: i === current ? 24 : 6,
-                background: i === current ? '#c9a96e' : '#e8d5b5',
+                background: i === current ? '#a855f7' : '#ddd6fe',
               }}
             />
           ))}
